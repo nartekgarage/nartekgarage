@@ -1,14 +1,14 @@
 [
   {
-    "id": "demo-1",
-    "name": "GTX 1050 2GB",
-    "price": "250 lei",
+    "id": "mtx1edml8rsar",
+    "name": "W2K20 (Joc PS4)",
+    "price": "20 LEI",
     "status": "Disponibil",
-    "category": "Componente PC",
-    "image": "",
-    "description": "Placă video second-hand, produs demo pentru testarea paginii Shop."
-  },
-  {
+    "category": "Diverse",
+    "image": "w2k20s",
+    "description": "✅ Produs testat și funcțional\n💿 Disc original WWE 2K20\n📦 Carcasă + disc + booklet"
+  }
+]
     "id": "demo-2",
     "name": "SSD 480GB",
     "price": "80 lei",
