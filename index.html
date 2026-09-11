@@ -58,9 +58,10 @@ nav{
 .hero{min-height:calc(100vh - 74px);display:flex;align-items:center;position:relative;overflow:hidden}
 .hero::before{
     content:"";position:absolute;width:520px;height:520px;border-radius:50%;
-    right:-180px;top:80px;background:rgba(22,140,255,.12);filter:blur(80px)
+    right:-180px;top:80px;background:rgba(22,140,255,.12);filter:blur(80px);
+    pointer-events:none;
 }
-.hero-grid{display:block}
+.hero-grid{display:block;position:relative;z-index:1}
 .kicker{
     color:var(--blue2);font-size:13px;font-weight:900;letter-spacing:3px;
     text-transform:uppercase
@@ -71,11 +72,17 @@ nav{
 }
 .hero h1 span{color:var(--blue)}
 .hero p{max-width:650px;color:var(--muted);font-size:18px}
-.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:34px}
+.actions{
+    display:flex;gap:13px;flex-wrap:wrap;margin-top:34px;
+    position:relative;z-index:2;
+}
 .btn{
     display:inline-flex;align-items:center;justify-content:center;
     padding:14px 21px;border-radius:8px;font-weight:900;
-    border:1px solid var(--line);transition:.25s
+    border:1px solid var(--line);transition:.25s;
+    position:relative;z-index:2;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
 }
 .btn-primary{background:var(--blue);border-color:var(--blue)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(22,140,255,.25)}
