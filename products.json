@@ -1,0 +1,29 @@
+[
+  {
+    "id": "demo-1",
+    "name": "GTX 1050 2GB",
+    "price": "250 lei",
+    "status": "Disponibil",
+    "category": "Componente PC",
+    "image": "",
+    "description": "Placă video second-hand, produs demo pentru testarea paginii Shop."
+  },
+  {
+    "id": "demo-2",
+    "name": "SSD 480GB",
+    "price": "80 lei",
+    "status": "Rezervat",
+    "category": "Componente PC",
+    "image": "",
+    "description": "SSD second-hand, produs demo. Înlocuiește-l cu produsul tău din products.json."
+  },
+  {
+    "id": "demo-3",
+    "name": "Controller",
+    "price": "100 lei",
+    "status": "Vândut",
+    "category": "Console",
+    "image": "",
+    "description": "Exemplu de produs vândut pentru a vedea cum apare statusul în Shop."
+  }
+]

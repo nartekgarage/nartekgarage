@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nartek Garage | Shop</title>
+<meta name="description" content="Produse second-hand disponibile prin Nartek Garage.">
+<style>
+:root{
+  --bg:#07090c;
+  --panel:#0d1117;
+  --panel2:#111720;
+  --text:#f4f7fb;
+  --muted:#8b96a5;
+  --line:rgba(255,255,255,.09);
+  --blue:#168cff;
+  --blue2:#5bb4ff;
+  --green:#55d96b;
+  --yellow:#f2c94c;
+  --red:#ff6d6d;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 83% 8%,rgba(22,140,255,.12),transparent 27rem),
+    radial-gradient(circle at 15% 34%,rgba(22,140,255,.055),transparent 24rem),
+    var(--bg);
+  min-height:100vh;
+}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.container{width:min(var(--max),92%);margin:auto}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:30;
+  background:rgba(7,9,12,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{font-weight:1000;letter-spacing:2px;font-size:20px}
+.brand span{color:var(--blue)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn{
+  padding:10px 14px;border:1px solid var(--line);border-radius:9px;
+  color:#cfd6df;font-size:13px;font-weight:900;transition:.2s;
+}
+.nav-btn:hover{border-color:rgba(22,140,255,.55);color:#fff;background:rgba(22,140,255,.07)}
+
+/* HERO */
+.hero{padding:82px 0 46px}
+.kicker{
+  color:var(--blue2);font-size:11px;font-weight:1000;letter-spacing:2.3px;
+  text-transform:uppercase;margin-bottom:14px
+}
+.hero h1{
+  margin:0;font-size:clamp(50px,8vw,90px);line-height:.92;
+  letter-spacing:-4px;text-transform:uppercase
+}
+.hero h1 span{color:var(--blue)}
+.hero p{
+  color:var(--muted);max-width:680px;line-height:1.65;font-size:16px;margin:22px 0 0
+}
+.hero-note{
+  display:inline-flex;align-items:center;gap:9px;margin-top:21px;
+  color:#b8c1cd;font-size:12px;border:1px solid var(--line);
+  padding:9px 11px;border-radius:8px;background:rgba(255,255,255,.02)
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px rgba(85,217,107,.55)}
+
+/* SHOP TOOLBAR */
+.shop-section{padding:8px 0 78px}
+.shop-top{
+  display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:20px
+}
+.shop-title h2{font-size:28px;margin:0 0 5px}
+.shop-title p{margin:0;color:var(--muted);font-size:13px}
+.counter{
+  color:#c7d0dc;font-size:12px;font-weight:900;border:1px solid var(--line);
+  background:rgba(255,255,255,.02);padding:9px 12px;border-radius:8px
+}
+.controls{
+  display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:12px;
+  align-items:center;margin-bottom:18px
+}
+.search{
+  width:100%;padding:13px 15px;border-radius:10px;
+  background:#0a0e13;border:1px solid var(--line);color:#fff;outline:none
+}
+.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(22,140,255,.08)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.filter{
+  color:#adb7c4;background:rgba(255,255,255,.025);
+  border:1px solid var(--line);border-radius:9px;padding:10px 12px;
+  cursor:pointer;font-size:12px;font-weight:900;transition:.2s
+}
+.filter:hover,.filter.active{
+  color:#fff;border-color:rgba(22,140,255,.55);background:rgba(22,140,255,.10)
+}
+
+/* CARDS */
+.products{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px
+}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  border:1px solid var(--line);border-radius:15px;overflow:hidden;
+  transition:transform .22s,border-color .22s,box-shadow .22s
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(22,140,255,.36);
+  box-shadow:0 16px 40px rgba(0,0,0,.22)
+}
+.photo{
+  position:relative;height:220px;background:
+    linear-gradient(135deg,#0b1016,#101925);
+  display:flex;align-items:center;justify-content:center;overflow:hidden
+}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.placeholder{
+  color:#415064;font-size:46px;user-select:none
+}
+.badge{
+  position:absolute;left:13px;top:13px;
+  font-size:10px;font-weight:1000;letter-spacing:1px;
+  padding:6px 8px;border-radius:6px;backdrop-filter:blur(8px)
+}
+.badge.disponibil{color:#7bea91;background:rgba(31,78,40,.82);border:1px solid rgba(85,217,107,.28)}
+.badge.rezervat{color:#f6d56d;background:rgba(83,70,24,.82);border:1px solid rgba(242,201,76,.28)}
+.badge.vandut{color:#ff8e8e;background:rgba(83,32,32,.82);border:1px solid rgba(255,109,109,.28)}
+.card-body{padding:19px}
+.category{
+  color:var(--blue2);font-size:10px;font-weight:1000;letter-spacing:1.6px;
+  text-transform:uppercase;margin-bottom:8px
+}
+.card h3{font-size:20px;line-height:1.2;margin:0}
+.desc{
+  color:var(--muted);font-size:13px;line-height:1.55;
+  min-height:61px;margin:9px 0 0
+}
+.bottom{
+  display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:18px
+}
+.price{font-size:23px;font-weight:1000;letter-spacing:-.5px}
+.contact{
+  border:1px solid var(--blue);background:var(--blue);color:white;
+  border-radius:8px;padding:11px 13px;font-size:12px;font-weight:1000;
+  transition:.2s;white-space:nowrap
+}
+.contact:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.contact.disabled{
+  background:rgba(255,255,255,.035);border-color:var(--line);
+  color:#67717d;pointer-events:none
+}
+.empty{
+  grid-column:1/-1;text-align:center;border:1px dashed var(--line);
+  color:var(--muted);padding:52px 20px;border-radius:14px
+}
+
+/* LOCAL TEST HELP */
+.local-helper{
+  display:none;margin-bottom:18px;border:1px solid rgba(242,201,76,.26);
+  background:rgba(242,201,76,.06);border-radius:10px;padding:14px;
+  color:#d8cc96;font-size:12px;line-height:1.5
+}
+.local-helper input{margin-top:10px;color:#fff}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:30px 0;color:#65717f;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-brand{font-weight:900;color:#9ca6b3;letter-spacing:1px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(12px);animation:show .55s ease forwards}
+@keyframes show{to{opacity:1;transform:none}}
+
+@media(max-width:900px){
+  .products{grid-template-columns:repeat(2,1fr)}
+  .controls{grid-template-columns:1fr}
+  .filters{justify-content:flex-start}
+}
+@media(max-width:580px){
+  .hero{padding-top:58px}
+  .hero h1{letter-spacing:-2.5px}
+  .products{grid-template-columns:1fr}
+  .shop-top,.footer-inner{align-items:flex-start;flex-direction:column}
+  .nav-inner{min-height:66px}
+  .brand{font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">NARTEK <span>GARAGE</span></a>
+    <div class="nav-actions">
+      <a class="nav-btn" href="https://nartekgarage.github.io/nartekgarage/">← Acasă</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container reveal">
+    <div class="kicker">Nartek Garage // Second-hand</div>
+    <h1>Nartek <span>Shop</span></h1>
+    <p>Piese, componente, periferice și alte produse disponibile prin Nartek Garage</p>
+    <div class="hero-note"><span class="dot"></span> Produse actualizate direct din catalog</div>
+  </div>
+</header>
+
+<section class="shop-section">
+  <div class="container">
+    <div class="shop-top">
+      <div class="shop-title">
+        <h2>Produse disponibile</h2>
+        <p>Caută sau filtrează produsele din Shop</p>
+      </div>
+      <div class="counter" id="counter">0 produse</div>
+    </div>
+
+    <div class="local-helper" id="localHelper">
+      Pentru test local, browserul poate bloca citirea automată a fișierului <b>products.json</b>.
+      Selectează-l manual aici:
+      <br>
+      <input id="jsonPicker" type="file" accept=".json,application/json">
+    </div>
+
+    <div class="controls">
+      <input class="search" id="search" type="search" placeholder="Caută un produs...">
+      <div class="filters" id="filters"></div>
+    </div>
+
+    <div class="products" id="products">
+      <div class="empty">Se încarcă produsele...</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">NARTEK GARAGE</div>
+    <div>© 2026 Nartek Garage</div>
+  </div>
+</footer>
+
+<script>
+let products = [];
+let currentCategory = "Toate";
+let searchText = "";
+
+const productsBox = document.getElementById("products");
+const filtersBox = document.getElementById("filters");
+const counter = document.getElementById("counter");
+const search = document.getElementById("search");
+
+function esc(value=""){
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"
+  }[c]));
+}
+
+function normalizeStatus(status=""){
+  return status.toLowerCase()
+    .replaceAll("ă","a").replaceAll("â","a").replaceAll("î","i")
+    .replaceAll("ș","s").replaceAll("ş","s")
+    .replaceAll("ț","t").replaceAll("ţ","t");
+}
+
+function contactUrl(product){
+  const text = encodeURIComponent(`Salut! Sunt interesat de produsul: ${product.name} (${product.price}).`);
+  return `https://www.instagram.com/nartek_garage/`;
+}
+
+function renderFilters(){
+  const categories = ["Toate", ...new Set(products.map(p => p.category).filter(Boolean))];
+  filtersBox.innerHTML = categories.map(cat => `
+    <button class="filter ${cat === currentCategory ? "active" : ""}" data-cat="${esc(cat)}">
+      ${esc(cat)}
+    </button>
+  `).join("");
+
+  filtersBox.querySelectorAll(".filter").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentCategory = btn.dataset.cat;
+      renderFilters();
+      renderProducts();
+    });
+  });
+}
+
+function getFiltered(){
+  const q = searchText.trim().toLowerCase();
+  return products.filter(p => {
+    const inCategory = currentCategory === "Toate" || p.category === currentCategory;
+    const searchable = `${p.name || ""} ${p.description || ""} ${p.category || ""}`.toLowerCase();
+    const inSearch = !q || searchable.includes(q);
+    return inCategory && inSearch;
+  });
+}
+
+function renderProducts(){
+  const list = getFiltered();
+  const availableCount = list.filter(p => p.status !== "Vândut").length;
+  counter.textContent = `${availableCount} ${availableCount === 1 ? "produs disponibil" : "produse disponibile"}`;
+
+  if(!list.length){
+    productsBox.innerHTML = `<div class="empty">Nu am găsit produse pentru filtrul ales.</div>`;
+    return;
+  }
+
+  productsBox.innerHTML = list.map((p, i) => {
+    const status = p.status || "Disponibil";
+    const sold = status === "Vândut";
+    const statusClass = normalizeStatus(status);
+
+    const image = p.image
+      ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.remove();this.parentElement.querySelector('.placeholder').style.display='block'">
+         <div class="placeholder" style="display:none">📦</div>`
+      : `<div class="placeholder">📦</div>`;
+
+    return `
+      <article class="card reveal" style="animation-delay:${Math.min(i * 45, 270)}ms">
+        <div class="photo">
+          ${image}
+          <span class="badge ${statusClass}">${esc(status).toUpperCase()}</span>
+        </div>
+        <div class="card-body">
+          <div class="category">${esc(p.category || "Diverse")}</div>
+          <h3>${esc(p.name || "Produs")}</h3>
+          <p class="desc">${esc(p.description || "")}</p>
+          <div class="bottom">
+            <div class="price">${esc(p.price || "Preț la cerere")}</div>
+            ${
+              sold
+                ? `<span class="contact disabled">Vândut</span>`
+                : `<a class="contact" href="${contactUrl(p)}" target="_blank" rel="noopener">Sunt interesat</a>`
+            }
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function useProducts(data){
+  if(!Array.isArray(data)) throw new Error("JSON invalid");
+  products = data;
+  currentCategory = "Toate";
+  searchText = "";
+  search.value = "";
+  renderFilters();
+  renderProducts();
+}
+
+search.addEventListener("input", e => {
+  searchText = e.target.value;
+  renderProducts();
+});
+
+fetch("products.json", {cache:"no-store"})
+  .then(r => {
+    if(!r.ok) throw new Error("products.json nu a fost găsit");
+    return r.json();
+  })
+  .then(useProducts)
+  .catch(() => {
+    document.getElementById("localHelper").style.display = "block";
+    productsBox.innerHTML = `<div class="empty">Selectează fișierul products.json pentru testul local.</div>`;
+    counter.textContent = "0 produse";
+  });
+
+document.getElementById("jsonPicker").addEventListener("change", async e => {
+  const file = e.target.files[0];
+  if(!file) return;
+  try{
+    useProducts(JSON.parse(await file.text()));
+    document.getElementById("localHelper").style.display = "none";
+  }catch{
+    alert("Fișierul selectat nu este un products.json valid.");
+  }
+});
+</script>
+
+</body>
+</html>
