@@ -9,21 +9,3 @@
     "description": "✅ Produs testat și funcțional\n💿 Disc original WWE 2K20\n📦 Carcasă + disc + booklet"
   }
 ]
-    "id": "demo-2",
-    "name": "SSD 480GB",
-    "price": "80 lei",
-    "status": "Rezervat",
-    "category": "Componente PC",
-    "image": "",
-    "description": "SSD second-hand, produs demo. Înlocuiește-l cu produsul tău din products.json."
-  },
-  {
-    "id": "demo-3",
-    "name": "Controller",
-    "price": "100 lei",
-    "status": "Vândut",
-    "category": "Console",
-    "image": "",
-    "description": "Exemplu de produs vândut pentru a vedea cum apare statusul în Shop."
-  }
-]
