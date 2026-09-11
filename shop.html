@@ -204,7 +204,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:#65717f;font-size:1
   <div class="container nav-inner">
     <a class="brand" href="index.html">NARTEK <span>GARAGE</span></a>
     <div class="nav-actions">
-      <a class="nav-btn" href="https://nartekgarage.github.io/nartekgarage/">← Acasă</a>
+      <a class="nav-btn" href="/">← Acasă</a>
     </div>
   </div>
 </nav>
@@ -227,15 +227,7 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:#65717f;font-size:1
       </div>
       <div class="counter" id="counter">0 produse</div>
     </div>
-
-    <div class="local-helper" id="localHelper">
-      Pentru test local, browserul poate bloca citirea automată a fișierului <b>products.json</b>.
-      Selectează-l manual aici:
-      <br>
-      <input id="jsonPicker" type="file" accept=".json,application/json">
-    </div>
-
-    <div class="controls">
+<div class="controls">
       <input class="search" id="search" type="search" placeholder="Caută un produs...">
       <div class="filters" id="filters"></div>
     </div>
@@ -323,8 +315,18 @@ function renderProducts(){
     const sold = status === "Vândut";
     const statusClass = normalizeStatus(status);
 
-    const image = p.image
-      ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" onerror="this.remove();this.parentElement.querySelector('.placeholder').style.display='block'">
+    const imagePath = p.image
+      ? (/^(https?:|data:)/i.test(p.image)
+          ? p.image
+          : p.image.startsWith("/")
+            ? p.image
+            : p.image.includes("/")
+              ? `/${p.image.replace(/^\.\//, "")}`
+              : `/images/shop/${p.image}`)
+      : "";
+
+    const image = imagePath
+      ? `<img src="${esc(imagePath)}" alt="${esc(p.name)}" onerror="this.remove();this.parentElement.querySelector('.placeholder').style.display='block'">
          <div class="placeholder" style="display:none">📦</div>`
       : `<div class="placeholder">📦</div>`;
 
@@ -367,28 +369,17 @@ search.addEventListener("input", e => {
   renderProducts();
 });
 
-fetch("products.json", {cache:"no-store"})
+fetch("/products.json", {cache:"no-store"})
   .then(r => {
     if(!r.ok) throw new Error("products.json nu a fost găsit");
     return r.json();
   })
   .then(useProducts)
   .catch(() => {
-    document.getElementById("localHelper").style.display = "block";
-    productsBox.innerHTML = `<div class="empty">Selectează fișierul products.json pentru testul local.</div>`;
+    productsBox.innerHTML = `<div class="empty">Produsele nu au putut fi încărcate momentan.</div>`;
     counter.textContent = "0 produse";
   });
 
-document.getElementById("jsonPicker").addEventListener("change", async e => {
-  const file = e.target.files[0];
-  if(!file) return;
-  try{
-    useProducts(JSON.parse(await file.text()));
-    document.getElementById("localHelper").style.display = "none";
-  }catch{
-    alert("Fișierul selectat nu este un products.json valid.");
-  }
-});
 </script>
 
 </body>
