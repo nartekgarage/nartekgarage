@@ -1,12 +1,23 @@
 [
   {
+    "id": "mtyjdq1005me8",
+    "name": "Placa video ASUS GTX 1050 2GB",
+    "price": "150 LEI",
+    "status": "Disponibil",
+    "category": "Componente PC",
+    "condition": "",
+    "image": "asus.webp",
+    "description": "🎮 Model: ASUS ROG STRIX GTX 1050 2G\n💾 Memorie video: 2 GB GDDR5\n⚡ Interfață memorie: 128-bit\n🚀 Frecvență: 1354 MHz Base / 1455 MHz Boost (Mod OC din fabrică)\n🖥️ Format: Placă video pentru desktop🔌 Conectare: PCI Express 3.0\n🔌 Alimentare suplimentară: Necesită 1x conector 6-pini PCIe (Consum TDP 75W)\n📺 Ieșiri video: \n1x HDMI 2.0, \n1x DisplayPort 1.4,\n2x DVI-D (Suportă monitor multiplu)\n❄️ Răcire: Dual Fan ASUS Strix \n🌈 Iluminare: Aura RGB pe carcasă\n✅ Produs testat și funcțional"
+  },
+  {
     "id": "mtyirl4rgpkvp",
     "name": "Placa video ZOTAC GTS450 1GB 128BIT",
     "price": "45 LEI",
     "status": "Disponibil",
     "category": "Componente PC",
     "image": "zotac.webp",
-    "description": "🎮 Model: ZOTAC GeForce GTS 450\n💾 Memorie video: 1 GB DDR3\n⚡ Interfață memorie: 128-bit\n🔌 Conectare: PCI Express\n✅ Produs testat și funcțional"
+    "description": "🎮 Model: ZOTAC GeForce GTS 450\n💾 Memorie video: 1 GB DDR3\n⚡ Interfață memorie: 128-bit\n🔌 Conectare: PCI Express\n✅ Produs testat și funcțional",
+    "condition": ""
   },
   {
     "id": "mtyidh4or5xmc",
@@ -15,7 +26,8 @@
     "status": "Disponibil",
     "category": "Componente PC",
     "image": "ramsamsung.webp",
-    "description": "💾 Capacitate: 2 GB\n⚡ Tip: DDR3L (Low Voltage, compatibil și cu DDR3 standard)\n🏎️ Frecvență: 1600 MHz (PC3L-12800S)\n⚙️ Latență: CL11\n👥 Configurație: 1Rx16 Single Rank\n🔌 Format: SO-DIMM (Laptop / Mini PC / All-in-One)\n🔋 Voltaj: 1.35V (Funcționează și la 1.5V)\n✅ Non-ECC / Unbuffered(Laptopuri cu procesoare Intel Core generația a 2-a până la a 5-a / AMD A-Series)\n🛠️ Produs testat și funcțional"
+    "description": "💾 Capacitate: 2 GB\n⚡ Tip: DDR3L (Low Voltage, compatibil și cu DDR3 standard)\n🏎️ Frecvență: 1600 MHz (PC3L-12800S)\n⚙️ Latență: CL11\n👥 Configurație: 1Rx16 Single Rank\n🔌 Format: SO-DIMM (Laptop / Mini PC / All-in-One)\n🔋 Voltaj: 1.35V (Funcționează și la 1.5V)\n✅ Non-ECC / Unbuffered(Laptopuri cu procesoare Intel Core generația a 2-a până la a 5-a / AMD A-Series)\n🛠️ Produs testat și funcțional",
+    "condition": ""
   },
   {
     "id": "mtyd6mg9uc4tu",
@@ -24,7 +36,8 @@
     "status": "Disponibil",
     "category": "Componente PC",
     "image": "ram.webp",
-    "description": "💾 Capacitate: 4 GB\n⚡ Tip: DDR3\n🏎️ Frecvență: 1333 MHz\n⚙️ Latență: CL9\n👥 Configurație: 2Rx8 Dual Rank\n🔌 Format: DIMM Desktop\n🔋 Voltaj: 1.5V\n✅ Non-ECC / Unbuffered\n(Intel LGA 1155, 1156, 775 / AMD AM3, AM3+)\n🛠️ Produs testat și funcțional"
+    "description": "💾 Capacitate: 4 GB\n⚡ Tip: DDR3\n🏎️ Frecvență: 1333 MHz\n⚙️ Latență: CL9\n👥 Configurație: 2Rx8 Dual Rank\n🔌 Format: DIMM Desktop\n🔋 Voltaj: 1.5V\n✅ Non-ECC / Unbuffered\n(Intel LGA 1155, 1156, 775 / AMD AM3, AM3+)\n🛠️ Produs testat și funcțional",
+    "condition": ""
   },
   {
     "id": "mtx49zgp6ofgu",
@@ -33,7 +46,8 @@
     "status": "Disponibil",
     "category": "Diverse",
     "image": "ghost.webp",
-    "description": "✅ Produs testat și funcțional\n💿 Disc original\n✨ Disc fără zgârieturi\n📦 Carcasă + disc + booklet"
+    "description": "✅ Produs testat și funcțional\n💿 Disc original\n✨ Disc fără zgârieturi\n📦 Carcasă + disc + booklet",
+    "condition": ""
   },
   {
     "id": "mtx1edml8rsar",
@@ -42,6 +56,7 @@
     "status": "Disponibil",
     "category": "Diverse",
     "image": "w2k20.webp",
-    "description": "✅ Produs testat și funcțional\n💿 Disc original\n✨ Disc fără zgârieturi\n📦 Carcasă + disc + booklet"
+    "description": "✅ Produs testat și funcțional\n💿 Disc original\n✨ Disc fără zgârieturi\n📦 Carcasă + disc + booklet",
+    "condition": ""
   }
 ]
