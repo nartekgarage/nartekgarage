@@ -1,5 +1,14 @@
 [
   {
+    "id": "mtyirl4rgpkvp",
+    "name": "Placa video ZOTAC GTS450 1GB 128BIT",
+    "price": "45 LEI",
+    "status": "Disponibil",
+    "category": "Componente PC",
+    "image": "zotac.webp",
+    "description": "🎮 Model: ZOTAC GeForce GTS 450\n💾 Memorie video: 1 GB DDR3\n⚡ Interfață memorie: 128-bit\n🔌 Conectare: PCI Express\n✅ Produs testat și funcțional"
+  },
+  {
     "id": "mtyidh4or5xmc",
     "name": "Memorie RAM DDR3 2GB 1600MHz Samsung",
     "price": "20 LEI",
@@ -32,7 +41,7 @@
     "price": "25 LEI",
     "status": "Disponibil",
     "category": "Diverse",
-    "image": "w2k20s.webp",
+    "image": "w2k20.webp",
     "description": "✅ Produs testat și funcțional\n💿 Disc original\n✨ Disc fără zgârieturi\n📦 Carcasă + disc + booklet"
   }
 ]
