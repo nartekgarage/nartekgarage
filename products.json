@@ -1,5 +1,14 @@
 [
   {
+    "id": "mtyidh4or5xmc",
+    "name": "Memorie RAM DDR3 2GB 1600MHz Samsung",
+    "price": "20 LEI",
+    "status": "Disponibil",
+    "category": "Componente PC",
+    "image": "ramsamsung.webp",
+    "description": "💾 Capacitate: 2 GB\n⚡ Tip: DDR3L (Low Voltage, compatibil și cu DDR3 standard)\n🏎️ Frecvență: 1600 MHz (PC3L-12800S)\n⚙️ Latență: CL11\n👥 Configurație: 1Rx16 Single Rank\n🔌 Format: SO-DIMM (Laptop / Mini PC / All-in-One)\n🔋 Voltaj: 1.35V (Funcționează și la 1.5V)\n✅ Non-ECC / Unbuffered(Laptopuri cu procesoare Intel Core generația a 2-a până la a 5-a / AMD A-Series)\n🛠️ Produs testat și funcțional"
+  },
+  {
     "id": "mtyd6mg9uc4tu",
     "name": "Memorie RAM DDR3 4GB 1333MHz Hynix",
     "price": "30 LEI",
