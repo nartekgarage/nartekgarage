@@ -538,7 +538,7 @@ function renderProducts(){
       : "";
 
     const image = imagePath
-      ? `<img src="${esc(imagePath)}" alt="${esc(p.name)}" data-full="${esc(imagePath)}" data-name="${esc(p.name)}" class="product-image" onerror="this.remove();this.parentElement.querySelector('.placeholder').style.display='block'">
+      ? `<img src="${esc(imagePath)}" alt="${esc(p.name)}" data-full="${esc(imagePath)}" data-name="${esc(p.name)}" class="product-image" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
          <div class="placeholder" style="display:none">📦</div>`
       : `<div class="placeholder">📦</div>`;
 
