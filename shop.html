@@ -88,6 +88,37 @@ nav{
   color:#c7d0dc;font-size:12px;font-weight:900;border:1px solid var(--line);
   background:rgba(255,255,255,.02);padding:9px 12px;border-radius:8px
 }
+.delivery-note{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:2px 0 24px;
+  padding:17px 19px;
+  border:1px solid rgba(22,140,255,.48);
+  border-radius:13px;
+  background:
+    linear-gradient(135deg,rgba(22,140,255,.16),rgba(0,200,255,.07));
+  color:#e2eaf3;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.6;
+  box-shadow:
+    0 10px 32px rgba(0,0,0,.20),
+    0 0 28px rgba(22,140,255,.09);
+}
+.delivery-note span{
+  flex:0 0 auto;
+  width:38px;
+  height:38px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  color:#fff;
+  font-size:19px;
+  background:linear-gradient(135deg,#168cff,#00bfff);
+  box-shadow:0 8px 22px rgba(22,140,255,.28);
+}
 .controls{
   display:grid;grid-template-columns:minmax(220px,1fr) auto;gap:12px;
   align-items:center;margin-bottom:18px
@@ -178,6 +209,56 @@ nav{
 .lightbox-close:active{
   transform:scale(.97);
 }
+.details-modal{
+  position:fixed;
+  inset:0;
+  z-index:1100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:22px;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(8px);
+}
+.details-modal.open{display:flex}
+.details-box{
+  width:min(620px,94vw);
+  max-height:82vh;
+  overflow:auto;
+  background:#0d1117;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:16px;
+  padding:24px;
+  box-shadow:0 25px 80px rgba(0,0,0,.5);
+}
+.details-top{
+  display:flex;
+  align-items:start;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:16px;
+}
+.details-title{
+  margin:0;
+  font-size:22px;
+  line-height:1.2;
+}
+.details-close{
+  flex:0 0 auto;
+  width:38px;height:38px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#111720;
+  color:#fff;
+  font-size:24px;
+  cursor:pointer;
+}
+.details-text{
+  color:#c9d1dc;
+  font-size:14px;
+  line-height:1.7;
+  white-space:pre-line;
+}
 .badge{
   position:absolute;left:13px;top:13px;
   font-size:10px;font-weight:1000;letter-spacing:1px;
@@ -186,22 +267,58 @@ nav{
 .badge.disponibil{color:#7bea91;background:rgba(31,78,40,.82);border:1px solid rgba(85,217,107,.28)}
 .badge.rezervat{color:#f6d56d;background:rgba(83,70,24,.82);border:1px solid rgba(242,201,76,.28)}
 .badge.vandut{color:#ff8e8e;background:rgba(83,32,32,.82);border:1px solid rgba(255,109,109,.28)}
-.card-body{padding:19px}
+.card{
+  display:flex;
+  flex-direction:column;
+}
+.card-body{
+  padding:19px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
 .category{
   color:var(--blue2);font-size:10px;font-weight:1000;letter-spacing:1.6px;
   text-transform:uppercase;margin-bottom:8px
 }
-.card h3{font-size:20px;line-height:1.2;margin:0}
+.card h3{
+  font-size:20px;
+  line-height:1.2;
+  margin:0;
+  min-height:48px;
+}
+.desc-wrap{
+  margin-top:10px;
+  min-height:116px;
+}
 .desc{
   color:var(--muted);
   font-size:13px;
-  line-height:1.6;
-  min-height:61px;
-  margin:9px 0 0;
+  line-height:1.55;
+  margin:0;
   white-space:pre-line;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
+  overflow:hidden;
 }
+.more-btn{
+  display:none;
+  margin-top:8px;
+  padding:0;
+  border:0;
+  background:none;
+  color:var(--blue2);
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.more-btn.show{display:inline-block}
+.more-btn:hover{text-decoration:underline}
 .bottom{
-  display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:18px
+  display:flex;justify-content:space-between;align-items:end;gap:12px;
+  margin-top:auto;
+  padding-top:16px;
 }
 .price{font-size:23px;font-weight:1000;letter-spacing:-.5px}
 .contact{
@@ -280,6 +397,11 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:#65717f;font-size:1
       </div>
       <div class="counter" id="counter">0 produse</div>
     </div>
+    <div class="delivery-note">
+      <span>🛡️</span>
+      <div>Pentru siguranța și simplitatea tranzacției, livrarea produselor se realizează prin OLX sau Vinted</div>
+    </div>
+
 <div class="controls">
       <input class="search" id="search" type="search" placeholder="Caută un produs...">
       <div class="filters" id="filters"></div>
@@ -303,6 +425,16 @@ footer{border-top:1px solid var(--line);padding:30px 0;color:#65717f;font-size:1
   <img id="lightboxImage" src="" alt="">
 </div>
 
+<div class="details-modal" id="detailsModal" aria-hidden="true">
+  <div class="details-box">
+    <div class="details-top">
+      <h2 class="details-title" id="detailsTitle">Detalii produs</h2>
+      <button class="details-close" id="detailsClose" aria-label="Închide">×</button>
+    </div>
+    <div class="details-text" id="detailsText"></div>
+  </div>
+</div>
+
 <script>
 let products = [];
 let currentCategory = "Toate";
@@ -315,6 +447,10 @@ const search = document.getElementById("search");
 const imageLightbox = document.getElementById("imageLightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxClose = document.getElementById("lightboxClose");
+const detailsModal = document.getElementById("detailsModal");
+const detailsTitle = document.getElementById("detailsTitle");
+const detailsText = document.getElementById("detailsText");
+const detailsClose = document.getElementById("detailsClose");
 
 function esc(value=""){
   return String(value).replace(/[&<>"']/g, c => ({
@@ -400,7 +536,14 @@ function renderProducts(){
         <div class="card-body">
           <div class="category">${esc(p.category || "Diverse")}</div>
           <h3>${esc(p.name || "Produs")}</h3>
-          <p class="desc">${esc(p.description || "")}</p>
+          <div class="desc-wrap">
+            <p class="desc">${esc(p.description || "")}</p>
+            <button class="more-btn ${((p.description || "").split("\n").length > 4 || (p.description || "").length > 150) ? "show" : ""}"
+                    data-name="${esc(p.name || "Produs")}"
+                    data-description="${esc((p.description || "").replace(/\n/g, "&#10;"))}">
+              Vezi mai mult
+            </button>
+          </div>
           <div class="bottom">
             <div class="price">${esc(p.price || "Preț la cerere")}</div>
             ${
@@ -458,6 +601,32 @@ document.addEventListener("keydown", e => {
   if(e.key === "Escape" && imageLightbox.classList.contains("open")){
     closeLightbox();
   }
+});
+
+productsBox.addEventListener("click", e => {
+  const btn = e.target.closest(".more-btn");
+  if(!btn) return;
+
+  detailsTitle.textContent = btn.dataset.name || "Detalii produs";
+  detailsText.textContent = (btn.dataset.description || "").replace(/&#10;/g, "\n");
+  detailsModal.classList.add("open");
+  detailsModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+});
+
+function closeDetails(){
+  detailsModal.classList.remove("open");
+  detailsModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+detailsClose.addEventListener("click", closeDetails);
+detailsModal.addEventListener("click", e => {
+  if(e.target === detailsModal) closeDetails();
+});
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape" && detailsModal.classList.contains("open")) closeDetails();
 });
 
 fetch("/products.json", {cache:"no-store"})
