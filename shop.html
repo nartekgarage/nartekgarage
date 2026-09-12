@@ -281,6 +281,21 @@ nav{
   color:var(--blue2);font-size:10px;font-weight:1000;letter-spacing:1.6px;
   text-transform:uppercase;margin-bottom:8px
 }
+.condition-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin:0 0 9px;
+  padding:5px 8px;
+  border-radius:6px;
+  border:1px solid rgba(0,200,255,.30);
+  background:rgba(0,200,255,.08);
+  color:#7fdfff;
+  font-size:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
 .card h3{
   font-size:20px;
   line-height:1.2;
@@ -491,7 +506,7 @@ function getFiltered(){
   const q = searchText.trim().toLowerCase();
   return products.filter(p => {
     const inCategory = currentCategory === "Toate" || p.category === currentCategory;
-    const searchable = `${p.name || ""} ${p.description || ""} ${p.category || ""}`.toLowerCase();
+    const searchable = `${p.name || ""} ${p.description || ""} ${p.category || ""} ${p.condition || ""}`.toLowerCase();
     const inSearch = !q || searchable.includes(q);
     return inCategory && inSearch;
   });
@@ -535,6 +550,7 @@ function renderProducts(){
         </div>
         <div class="card-body">
           <div class="category">${esc(p.category || "Diverse")}</div>
+          ${p.condition === "Nou sigilat" ? '<div class="condition-badge">✨ Nou sigilat</div>' : ''}
           <h3>${esc(p.name || "Produs")}</h3>
           <div class="desc-wrap">
             <p class="desc">${esc(p.description || "")}</p>
