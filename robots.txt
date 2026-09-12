@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nartekgarage.github.io/sitemap.xml
